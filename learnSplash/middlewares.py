@@ -4,7 +4,8 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
-
+from learnSplash.ua import Ua
+from random import choice
 # useful for handling different item types with a single interface
 from itemadapter import is_item, ItemAdapter
 
@@ -103,7 +104,13 @@ class LearnsplashDownloaderMiddleware:
         spider.logger.info('Spider opened: %s' % spider.name)
 
 
-class ProxyMiddleware(object):
+class MyUserAgentMiddleware:
+
+    def process_request(self, request, spider):
+        request.headers.setdefault('User-Agent', choice(Ua()))
+
+
+class MyHttpProxyMiddleware(object):
     def process_request(self, request, spider):
         print("start use proxy")
         request.meta['splash']['args']['proxy'] = 'http://119.114.100.159:22992'

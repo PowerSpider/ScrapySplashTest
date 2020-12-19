@@ -52,7 +52,8 @@ SPIDER_MIDDLEWARES = {
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     # 'RenderingCrawler.middlewares.RenderingcrawlerDownloaderMiddleware': 543,
-    'learnSplash.middlewares.ProxyMiddleware': 724,
+    'learnSplash.middlewares.MyHttpProxyMiddleware': 724,
+    'learnSplash.middlewares.MyUserAgentMiddleware': 400,
     # 'RenderingCrawler.middlewares.MyUserAgentMiddleware': 400,
     # 'RenderingCrawler.middlewares.MyHttpProxyMiddleware': 750,
     'scrapy_splash.SplashCookiesMiddleware': 723,
@@ -95,8 +96,8 @@ DOWNLOADER_MIDDLEWARES = {
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 # Configure scrapy-splash
-SPLASH_URL = 'http://localhost:8050'
-# SPLASH_URL = 'http://39.100.224.193:8050/'
+# SPLASH_URL = 'http://localhost:8050'
+SPLASH_URL = 'http://39.100.224.193:8050/'
 DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
 HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
 

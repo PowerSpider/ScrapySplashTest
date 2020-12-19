@@ -5,8 +5,8 @@ lua = """
 function main(splash)
      splash:on_request(function(request)
         request:set_proxy{
-            host = "116.239.105.5",
-            port = 41546,
+            host = "119.114.100.159",
+            port = 22992,
             username = '',
             password = '',
         }
@@ -35,7 +35,7 @@ class HttbinSpider(scrapy.Spider):
             callback=self.parse,
             # endpoint='execute',
             args={
-                "wait": 5,
+                "wait": 3,
                 # 'lua_source': lua,
                 # "proxy": 'http://119.114.100.159:22992'
             }
